@@ -1,0 +1,357 @@
+<!-- Updated portfolio HTML with working menu, vibrant sunset background, and Drive links -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Hamza Jutt</title>
+  
+  <style>
+:root{
+  --bg-gradient: linear-gradient(160deg, #ff9966, #ff5e7e, #6a0572, #120136);
+  --card: rgba(255,255,255,0.05);
+  --muted:#f0c6f7;
+  --accent:#ffdd59;
+  --accent2:#ff6f91;
+  --glass: rgba(255,255,255,0.1);
+  --maxw:1100px;
+  --radius:16px;
+  font-family: 'Inter', sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html, body{
+  height:100%;
+  background: var(--bg-gradient);
+  color:#fff;
+  scroll-behavior: smooth;
+  transition: background 0.6s ease;
+}
+
+a{color:var(--accent);text-decoration:none;font-weight:600;transition:0.3s}
+a:hover{color:var(--accent2)}
+
+img{max-width:100%;display:block}
+.container{max-width:var(--maxw);margin:0 auto;padding:28px}
+
+/* Header */
+header{position:sticky;top:12px;z-index:50}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  background: rgba(0,0,0,0.3);
+  padding:12px 16px;border-radius:20px;
+  border:1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:50px;height:50px;border-radius:12px;
+  background:linear-gradient(135deg,var(--accent2),var(--accent));
+  display:flex;align-items:center;justify-content:center;font-weight:700;color:#120136;
+  box-shadow: 0 4px 15px rgba(255,221,89,0.6);
+}
+nav ul{display:flex;gap:16px;list-style:none}
+nav a{padding:10px 14px;border-radius:10px;color:var(--muted)}
+nav a.active, nav a:hover{color:#fff;background:rgba(255,255,255,0.08)}
+.cta{
+  padding:10px 16px;
+  background: linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#120136;
+  border-radius:14px;font-weight:700;
+  box-shadow: 0 4px 20px rgba(255,221,89,0.4);
+}
+.menu-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:28px;cursor:pointer;}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:center;padding:50px 0}
+.hero-card{
+  background: var(--glass);
+  padding:36px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  backdrop-filter: blur(12px);
+}
+h1{font-size:32px;margin-bottom:12px;color:#ffe4f2; text-shadow: 2px 2px 12px rgba(0,0,0,0.4);}
+p.lead{color:#f5c6ff;line-height:1.6}
+
+/* Avatar */
+.avatar{width:300px;height:300px;border-radius:20px;
+  background: linear-gradient(135deg,#ff6f91,#6a0572);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+.avatar img{border-radius:20px;width:100%;height:100%;object-fit:cover}
+
+/* Sections */
+section{padding:48px 0}
+.section-title{display:flex;align-items:baseline;gap:12px;margin-bottom:28px}
+.section-title h2{font-size:24px;color:#ffd1f0; text-shadow: 1px 1px 6px rgba(0,0,0,0.3);}
+.grid{display:grid;gap:20px}
+
+/* Skills */
+.skills{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.skill{
+  background: rgba(255,255,255,0.08);
+  padding:16px;border-radius:18px;
+  border:1px solid rgba(255,255,255,0.12);
+  text-align:center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+.skill:hover{transform: translateY(-4px); box-shadow: 0 8px 30px rgba(255,221,89,0.5);}
+
+/* Projects */
+.projects{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.project{
+  background: rgba(255,255,255,0.1);
+  padding:20px;border-radius:20px;border:1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+.project:hover{transform: translateY(-6px); box-shadow: 0 12px 40px rgba(255,221,89,0.6);}
+.project h3{margin-bottom:10px;color:#ffe4f2}
+.drive-link{
+  padding:10px 14px;
+  background: rgba(255,255,255,0.1);
+  border-radius:12px;
+  display:inline-block;
+  transition: 0.3s;
+}
+.drive-link:hover{background: rgba(255,221,89,0.4); color:#120136;}
+
+    /* ...your existing styles... */
+
+    /* Contact styles (paste this at the end) */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 24px;
+    }
+
+    .contact-grid .hero-card.form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: rgba(255,255,255,0.08);
+      padding: 36px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      backdrop-filter: blur(12px);
+    }
+
+    .contact-grid .form input,
+    .contact-grid .form textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .contact-grid .form input:focus,
+    .contact-grid .form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 12px rgba(255,221,89,0.4);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .contact-grid .form button {
+      padding: 14px 20px;
+      border-radius: 16px;
+      border: none;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #120136;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-grid .form button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255,221,89,0.6);
+    }
+
+    .contact-grid aside.hero-card {
+      background: rgba(255,255,255,0.08);
+      padding: 28px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.5);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media(max-width:900px){
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+</style>
+
+</head>
+<body>
+
+<header class="container">
+  <div class="nav">
+    <div class="brand">
+      <div class="logo">HJ</div>
+      <div>
+        <div style="font-weight:700">HAMZA JUTT</div>
+        <div style="font-size:12px;color:var(--muted)">Frontend Developer</div>
+      </div>
+    </div>
+
+    <nav>
+      <button class="menu-toggle">☰</button>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#exp">Experiences</a></li>
+        <li><a href="#certs">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a class="cta" href="#contact">Hire me</a>
+  </div>
+</header>
+
+<main class="container">
+  <section id="home" class="hero">
+    <div class="hero-card">
+      <h1>Hello — I'm <span style="color:var(--accent)">Hamza Jutt</span></h1>
+      <p class="lead">I make clean and easy-to-use websites with a focus on design, speed, and simplicity.</p>
+      <div style="display:flex;gap:12px;margin-top:18px">
+        <a class="cta" href="#projects">View projects</a>
+        <a href="#contact" style="padding:8px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.12);font-weight:700">Contact</a>
+      </div>
+      <div style="margin-top:20px;color:var(--muted);font-size:14px;display:flex;gap:16px;flex-wrap:wrap">
+        <div>Location: Karachi</div>
+        <div>Available for freelance</div>
+      </div>
+    </div>
+    <aside class="hero-right">
+      <div class="avatar"><img src="hamza.jpeg" alt="My Photo" /></div>
+      <div style="text-align:center;color:var(--muted)">Software Engineer who loves building useful things.</div>
+    </aside>
+  </section>
+
+  <section id="about">
+    <div class="section-title"><h2>About</h2></div>
+    <div class="hero-card"><p>I love building things that feel fast, clean, and simple. I enjoy UI challenges, learning new tools, and polishing the final result.</p></div>
+  </section>
+
+  <section id="skills">
+    <div class="section-title"><h2>Skills</h2></div>
+    <div class="grid skills">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">UI Design</div>
+      <div class="skill">Responsive Design</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-title"><h2>Projects</h2></div>
+    <div class="grid projects">
+      <div class="project">
+        <h3>Temperature Converter</h3>
+        <p class="muted">Simple temperature conversion tool.</p>
+        <a class="drive-link" href="https://drive.google.com/drive/folders/1DlEGjO9d_FkLuPdPipcD96lNUhdjapjf?usp=drive_link" target="_blank">Open Drive Folder</a>
+      </div>
+      <div class="project">
+        <h3>Admission Form</h3>
+        <p class="muted">Admission form project files.</p>
+        <a class="drive-link" href="https://drive.google.com/drive/folders/1kvg24HLW3XXWaUiR_mgLkCa0_kzYehCz?usp=drive_link" target="_blank">Open Drive Folder</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="exp">
+    <div class="section-title"><h2>Experiences</h2></div>
+    <div class="timeline">
+      <div class="item"><strong>Frontend Intern</strong> — Company A (2023)<br><span style="color:var(--muted)">Worked on UI components and performance.</span></div>
+      <div class="item"><strong>Freelance</strong> — (2021–Present)<br><span style="color:var(--muted)">Built websites for businesses.</span></div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="section-title"><h2>Certificates</h2></div>
+    <div class="grid projects">
+      <div class="project">
+        <h3>Web Development Certificate</h3>
+        <a class="img" href="Certificate.png" target="_blank">View Certificate</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title"><h2>Contact</h2></div>
+    <div class="contact-grid">
+      <div class="hero-card form">
+        <form id="contactForm">
+          <label>Name</label>
+          <input id="name" type="text" required />
+          <label>Email</label>
+          <input id="email" type="email" required />
+          <label>Message</label>
+          <textarea id="message" rows="6" required></textarea>
+          <button type="submit">Send message</button>
+          <div id="formStatus" style="color:var(--muted);margin-top:8px;font-size:13px"></div>
+        </form>
+      </div>
+      <aside class="hero-card">
+        <h3>Get in touch</h3>
+        <p style="color:var(--muted)">Email: <a href="mailto:k253098@nu.edu.pk">k253098@nu.edu.pk</a></p>
+        <p style="color:var(--muted)">Location: Karachi</p>
+        <p style="color:var(--muted)">Available for freelance work</p>
+      </aside>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Hamza Jutt — Built with ♥</footer>
+</main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navUl = document.querySelector('nav ul');
+  menuToggle.addEventListener('click', ()=>{
+    navUl.style.display = navUl.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  const form = document.getElementById("contactForm");
+  const statusBox = document.getElementById("formStatus");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // stops the page from refreshing
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !message) {
+      statusBox.textContent = "Please fill all fields.";
+      return;
+    }
+
+    statusBox.textContent = "Message sent successfully!";
+
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
